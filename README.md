@@ -49,3 +49,10 @@ let ins = {
 function i(p:pro){}
 i(ins);
 ```
+######demo
+if function binding a interface, it must implement all var/methods of the interface.
+######interfaces for function types
+```
+interface S{
+    (a:string,b:number):string      //note the syntax difference  let declare:(name:string)=>void;  
+}

@@ -11,8 +11,10 @@
 
 // var k = new K(2);
 // console.log(k.get());
+import {Category} from './enums';
+import {Book,Loader} from './interfaces';
 
-function getAllBook(){
+function getAllBook():Book[]{
     let books=[
         {id:1,name:'start',author:'k',title:'t',category:Category.Novel,available:true},
         {id:2,name:'end',author:'h',title:'i',category:Category.Textbook,available:true}
@@ -54,7 +56,6 @@ function logTitles(titles:string[]):void{
 }
 
 
-enum Category{Novel=9,Textbook}
 //const allBooks = getAllBook();
 //logFirstBook(allBooks);
 const textbooks = getByCategory(Category.Novel);
@@ -67,7 +68,23 @@ let IdGen : (name:string,id:number)=>string;
 IdGen = (name:string,id:number)=>{return name+id}
 
 //optional params
-function opt(name?:string,age:number):void{
+function opt(name:string,age?:number):void{
     
 }
+
+
+//***********Demo interface
+function printBook(book:Book):void
+{
+    console.log(book.title)
+}
+let newbook = {id:1,name:'start',author:'k',title:'t',category:Category.Novel,available:true,damaged:(r:string)=>console.log(r)} 
+//duck typing. newbook does not declare Book type, but it implements all var in Book interface.So it is a book
+printBook(newbook);
+newbook.damaged("bad");
+
+//reuse
+let useLoader:Loader
+useLoader = (r:string) =>console.log(r);
+useLoader("bad");
 

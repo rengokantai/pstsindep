@@ -9,10 +9,11 @@
 // }
 // var k = new K(2);
 // console.log(k.get());
+var enums_1 = require('./enums');
 function getAllBook() {
     var books = [
-        { id: 1, name: 'start', author: 'k', title: 't', category: Category.Novel, available: true },
-        { id: 2, name: 'end', author: 'h', title: 'i', category: Category.Textbook, available: true }
+        { id: 1, name: 'start', author: 'k', title: 't', category: enums_1.Category.Novel, available: true },
+        { id: 2, name: 'end', author: 'h', title: 'i', category: enums_1.Category.Textbook, available: true }
     ];
     return books;
 }
@@ -47,14 +48,9 @@ function logTitles(titles) {
         console.log(t);
     }
 }
-var Category;
-(function (Category) {
-    Category[Category["Novel"] = 9] = "Novel";
-    Category[Category["Textbook"] = 10] = "Textbook";
-})(Category || (Category = {}));
 //const allBooks = getAllBook();
 //logFirstBook(allBooks);
-var textbooks = getByCategory(Category.Novel);
+var textbooks = getByCategory(enums_1.Category.Novel);
 logTitles(textbooks);
 textbooks.forEach(function (ele, idx, arr) {
     console.log(ele);
@@ -64,4 +60,16 @@ IdGen = function (name, id) { return name + id; };
 //optional params
 function opt(name, age) {
 }
+//***********Demo interface
+function printBook(book) {
+    console.log(book.title);
+}
+var newbook = { id: 1, name: 'start', author: 'k', title: 't', category: enums_1.Category.Novel, available: true, damaged: function (r) { return console.log(r); } };
+//duck typing. newbook does not declare Book type, but it implements all var in Book interface.So it is a book
+printBook(newbook);
+newbook.damaged("bad");
+//reuse
+var useLoader;
+useLoader = function (r) { return console.log(r); };
+useLoader("bad");
 //# sourceMappingURL=app.js.map
