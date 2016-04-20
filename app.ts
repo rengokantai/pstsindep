@@ -14,7 +14,8 @@
 
 function getAllBook(){
     let books=[
-        {name:'start',author:'k',available:true}
+        {id:1,name:'start',author:'k',title:'t',category:Category.Novel,available:true},
+        {id:2,name:'end',author:'h',title:'i',category:Category.Textbook,available:true}
     ]
     return books;
 }
@@ -32,5 +33,33 @@ function logFirstBook(books){
     console.log(numberOfBooks);
     console.log(first);
 }
-const allBooks = getAllBook();
-logFirstBook(allBooks);
+
+function getByCategory(cat:Category):Array<string>{
+    console.log(cat);
+    const books = getAllBook();
+    const filterTitles : string[] =[];
+    for(let b of books){
+        
+        if(b.category===cat){
+            filterTitles.push(b.title);
+        }
+    }
+    return filterTitles;
+}
+
+function logTitles(titles:string[]):void{
+    for(let t of titles){
+        console.log(t);
+    }
+}
+
+
+enum Category{Novel=9,Textbook}
+//const allBooks = getAllBook();
+//logFirstBook(allBooks);
+const textbooks = getByCategory(Category.Novel);
+logTitles(textbooks);
+
+textbooks.forEach((ele,idx,arr)=>{
+    console.log(ele)
+})

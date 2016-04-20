@@ -20,3 +20,6 @@ tuple: first few elem: ```let x:[number,string]=[1,'x'];  ```
 then we can add more elem (string,number only)
 x[2]=1
 x[3]='b'
+#####function
+######this
+"this" is cautured at function creation, not invocation
