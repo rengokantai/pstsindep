@@ -7,5 +7,17 @@ interface Book{
 interface Loader{
     (reason:string):void;
 }
-export {Book,Loader}
+
+interface Person{
+    name:string,
+    email:string
+}
+interface Author extends Person{
+    number:number
+}
+
+interface Librarian extends Person{
+    ass:(name:string)=>void
+}
+export {Book,Loader,Person,Author,Librarian}
 

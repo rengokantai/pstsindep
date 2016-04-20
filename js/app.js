@@ -10,6 +10,7 @@
 // var k = new K(2);
 // console.log(k.get());
 var enums_1 = require('./enums');
+var classes_1 = require('./classes');
 function getAllBook() {
     var books = [
         { id: 1, name: 'start', author: 'k', title: 't', category: enums_1.Category.Novel, available: true },
@@ -72,4 +73,7 @@ newbook.damaged("bad");
 var useLoader;
 useLoader = function (r) { return console.log(r); };
 useLoader("bad");
+var ul = new classes_1.UuniL();
+ul.name = "k";
+ul.ass('bad');
 //# sourceMappingURL=app.js.map

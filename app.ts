@@ -12,7 +12,8 @@
 // var k = new K(2);
 // console.log(k.get());
 import {Category} from './enums';
-import {Book,Loader} from './interfaces';
+import {Book,Loader,Person,Author,Librarian} from './interfaces';
+import {UuniL} from './classes'
 
 function getAllBook():Book[]{
     let books=[
@@ -88,3 +89,6 @@ let useLoader:Loader
 useLoader = (r:string) =>console.log(r);
 useLoader("bad");
 
+let ul = new UuniL();
+ul.name="k";
+ul.ass('bad')
