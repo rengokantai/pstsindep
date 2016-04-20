@@ -94,3 +94,87 @@ class B extends class {r:string}{   //this inline class only has one property
     s:string
 }
 ```
+#####modules and namespaces
+######change in ts 1.5
+internal:namespace  
+external:modules
+
+######namespace
+util.ts
+```
+namespace A{
+    export function B(){}
+    export namespace C{
+        export function D(){}
+    }
+}
+call:
+A.B()
+A.C.D()
+```
+using /// reference:
+```
+/// <reference path="util.ts" />
+```
+to import specific function:
+```
+import a = A.C
+```
+
+to compile use tsc:
+```
+tsc --target es5 app.ts
+```
+not working. to make this working, use
+```
+tsc --target es5 app.ts --outFile out.js
+```
+
+######detault export
+```
+export default class{}
+```
+```
+import R from './x.js'    //random name
+```
+#####generic
+######generic function
+```
+function F<T>(thing:T):T{
+    return thing;
+}
+let ins:string = F<string>('k');
+```
+######generic interface
+```
+interface N<T>{
+    getItem:()=>T;
+}
+```
+
+######generic constraint
+```
+interface B{}
+class S<T extends B>{}
+```
+
+#####compiler options
+create tsconfig.json
+```
+{
+    "compilerOptions": {
+        "target": "es5",
+        "outDir": "js",
+        "module": "commonjs",
+        "sourceMap": false
+    },
+    "files": [
+        "app.ts"
+    ]
+}
+```
+then
+```
+tsc
+```
+this will overwrite tasks.json
