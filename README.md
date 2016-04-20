@@ -23,3 +23,29 @@ x[3]='b'
 #####function
 ######this
 "this" is cautured at function creation, not invocation
+######function type
+let declare:(name:string)=>void;        //COLON,ARROW
+
+######Optional param
+```
+function opt(name?:string,age:number):void{}  //illegal, required param cannot follow optioanl param
+function opt(name:string,age?:number):void{}  //legal
+```
+
+######Rest param
+```
+function fun(name:string ...others:number[]){}
+```
+
+######Duck typing
+```
+interface pro{
+    walk:()=>void
+}
+let ins = {
+    walk:()=>{console.log('walk');
+}
+
+function i(p:pro){}
+i(ins);
+```

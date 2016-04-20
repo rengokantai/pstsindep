@@ -63,3 +63,11 @@ logTitles(textbooks);
 textbooks.forEach((ele,idx,arr)=>{
     console.log(ele)
 })
+let IdGen : (name:string,id:number)=>string;
+IdGen = (name:string,id:number)=>{return name+id}
+
+//optional params
+function opt(name?:string,age:number):void{
+    
+}
+

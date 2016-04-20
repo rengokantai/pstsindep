@@ -59,4 +59,9 @@ logTitles(textbooks);
 textbooks.forEach(function (ele, idx, arr) {
     console.log(ele);
 });
+var IdGen;
+IdGen = function (name, id) { return name + id; };
+//optional params
+function opt(name, age) {
+}
 //# sourceMappingURL=app.js.map
