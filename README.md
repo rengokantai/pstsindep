@@ -5,7 +5,11 @@
 set a new task ```shift ctrl b```
 run build task  
 configure launch.json  
-press F5 to debug
+press F5 to debug  
+args in tasks.json:
+```
+"args": ["--target","ES5","--outDir","js","--sourceMap","--module","commonjs","--watch","app.ts"]
+```
 #####basics
 ######basic type
 Boolean, Number, String, Array, Enum, Any, Void
@@ -56,3 +60,37 @@ if function binding a interface, it must implement all var/methods of the interf
 interface S{
     (a:string,b:number):string      //note the syntax difference  let declare:(name:string)=>void;  
 }
+
+#####classes
+######access modi
+public: must use constructor param as a class property  
+private: only in class, no subclass, no instance  
+protected: only class and subclass, no instance
+```
+class A{
+    p
+    constructor(p:number){this.p=p;}
+}
+```
+same as
+```
+class A{
+    constructor( public p:number){}
+}
+```
+this is legal:
+```
+class A{
+    constructor( private p:number){}
+}
+let a =new A(10);
+```
+(we can call constructor even it's parameter is private, however we cannot get it
+
+######cliass expressions
+inline class:
+```
+class B extends class {r:string}{   //this inline class only has one property
+    s:string
+}
+```
